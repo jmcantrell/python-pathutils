@@ -5,7 +5,7 @@ from glob import glob
 
 setup(
         name='PathUtils',
-        version='0.6',
+        version='0.6.1',
         description='Various small utilities for working with paths.',
         author='Jeremy Cantrell',
         author_email='jmcantrell@gmail.com',

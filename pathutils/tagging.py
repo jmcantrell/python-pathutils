@@ -85,7 +85,8 @@ class PathTags(object):
                 if not os.path.isdir(d): os.makedirs(d)
                 link = os.path.join(d, sumfn)
                 if os.path.exists(fn) and not os.path.exists(link):
-                    os.symlink(relative(add_sep(d), fn), link)
+                    rel_fn = os.path.join(relative(os.path.dirname(fn), d), os.path.basename(fn))
+                    os.symlink(rel_fn, link)
         self.old_tags = self.tags.copy()
 
     def load(self):
