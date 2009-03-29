@@ -8,6 +8,7 @@ def sum_filename(filename):
     ext = os.path.splitext(filename)[1]
     return m.hexdigest() + ext
 
+
 class PathTags(object):
 
     def __init__(self, directory):
@@ -40,9 +41,8 @@ class PathTags(object):
         fn = expand(filename)
         self.set_tags(fn, list(set(self.get_tags(fn)) - set(tags)))
 
-    def get_paths(self, tag=None):
-        return sorted([fn for fn, t in self.tags.items() if not tag or tag in t])
-
+    def get_paths(self, tags=None):
+        return sorted(fn for fn, t in self.tags.items() if all([i in t for i in tags]))
 
     def repair(self, directory):
         pool = self._get_basenames(directory)
