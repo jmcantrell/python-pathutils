@@ -1,6 +1,6 @@
 import os.path, hashlib
 
-from . import relative, expand, add_sep
+from . import expand
 
 def sum_filename(filename):
     m = hashlib.md5()
@@ -85,7 +85,7 @@ class PathTags(object):
                 if not os.path.isdir(d): os.makedirs(d)
                 link = os.path.join(d, sumfn)
                 if os.path.exists(fn) and not os.path.exists(link):
-                    rel_fn = os.path.join(relative(os.path.dirname(fn), d), os.path.basename(fn))
+                    rel_fn = os.path.join(os.path.relpath(os.path.dirname(fn), d), os.path.basename(fn))
                     os.symlink(rel_fn, link)
         self.old_tags = self.tags.copy()
 
