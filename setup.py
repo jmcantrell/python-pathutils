@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 
-from setuptools import setup, find_packages
-from glob import glob
+from setuptools import setup
 
 setup(
         name='PathUtils',
-        version='0.7.1',
+        version='0.8.0',
         description='Various small utilities for working with paths.',
         author='Jeremy Cantrell',
         author_email='jmcantrell@gmail.com',
@@ -16,7 +15,15 @@ setup(
             'Natural Language :: English',
             'Programming Language :: Python',
             ],
+        entry_points={
+            'console_scripts': [
+                'pathtags=pathtags:main',
+                ]
+            },
         packages=[
             'pathutils',
+            ],
+        py_modules=[
+            'pathtags',
             ],
         )
