@@ -4,8 +4,8 @@ from setuptools import setup
 
 setup(
         name='PathUtils',
-        version='0.8.0',
-        description='Various small utilities for working with paths.',
+        version='0.8.1',
+        description='Various utilities for working with paths.',
         author='Jeremy Cantrell',
         author_email='jmcantrell@gmail.com',
         classifiers=[
@@ -15,15 +15,7 @@ setup(
             'Natural Language :: English',
             'Programming Language :: Python',
             ],
-        entry_points={
-            'console_scripts': [
-                'pathtags=pathtags:main',
-                ]
-            },
         packages=[
             'pathutils',
-            ],
-        py_modules=[
-            'pathtags',
             ],
         )
