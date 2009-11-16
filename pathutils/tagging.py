@@ -2,14 +2,15 @@ import os.path, hashlib
 
 from . import expand
 
-def sum_filename(filename):
+def sum_filename(filename): #{{{1
     m = hashlib.md5()
     m.update(filename)
     ext = os.path.splitext(filename)[1]
     return m.hexdigest() + ext
 
+#}}}1
 
-class PathTags(object):
+class PathTags(object): #{{{1
 
     def __init__(self, directory):
         self.directory = expand(directory)
@@ -42,7 +43,8 @@ class PathTags(object):
         self.set_tags(fn, list(set(self.get_tags(fn)) - set(tags)))
 
     def get_paths(self, tags=None):
-        return sorted(fn for fn, t in self.tags.items() if all([i in t for i in tags]))
+        return sorted(fn for fn, t in self.tags.items()
+                if all([i in t for i in tags]))
 
     def repair(self, directory):
         pool = self._get_basenames(directory)
@@ -85,7 +87,8 @@ class PathTags(object):
                 if not os.path.isdir(d): os.makedirs(d)
                 link = os.path.join(d, sumfn)
                 if os.path.exists(fn) and not os.path.exists(link):
-                    rel_fn = os.path.join(os.path.relpath(os.path.dirname(fn), d), os.path.basename(fn))
+                    rel_fn = os.path.join(os.path.relpath(
+                        os.path.dirname(fn), d), os.path.basename(fn))
                     os.symlink(rel_fn, link)
         self.old_tags = self.tags.copy()
 
@@ -99,6 +102,7 @@ class PathTags(object):
             for sumfn in os.listdir(directory):
                 fn = os.path.join(directory, sumfn)
                 if not os.path.islink(fn): continue
-                fn = os.path.normpath(os.path.join(directory, os.readlink(fn)))
+                fn = os.path.normpath(
+                        os.path.join(directory, os.readlink(fn)))
                 self.add_tags(fn, [tag])
         self.old_tags.update(self.tags)
