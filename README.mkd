@@ -1,9 +1,9 @@
 Installation
 ------------
 
-If you have setuptools installed, you can install PathUtils with:
+You should install PathUtils with pip:
 
-    easy_install PathUtils
+    pip install PathUtils
 
 Otherwise, you'll have to download the package and run:
 
