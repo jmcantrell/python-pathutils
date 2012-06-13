@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
         name='PathUtils',
-        version='0.8.2',
+        version='0.8.3',
         description='Various utilities for working with paths.',
         author='Jeremy Cantrell',
         author_email='jmcantrell@gmail.com',
