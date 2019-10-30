@@ -5,7 +5,7 @@ from setuptools import setup
 setup(
 
     name='pathutils',
-    version='0.8.3',
+    version='0.8.4',
 
     description='Various utilities for working with paths.',
 
