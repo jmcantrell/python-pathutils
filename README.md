@@ -3,7 +3,7 @@ Installation
 
 You should install PathUtils with pip:
 
-    pip install PathUtils
+    pip install pathutils
 
 Otherwise, you'll have to download the package and run:
 
